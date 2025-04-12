@@ -3,7 +3,9 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: asrv2-mongodb-storageclass
   namespace: asrv2
-provisioner: kubernetes.io/no-provisioner
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
 
