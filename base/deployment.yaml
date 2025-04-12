@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: asrv2
+spec:
+  selector:
+    # this must always match the selector in the deployment section
+    app: asrv2
+  ports:
+    # protocol is tcp in 99% of cases
+    # port defines the port where this service will be reachable
+    # target port is the port where the container is listening
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      name: tcp
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asrv2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asrv2
+  template:
+    metadata:
+      labels:
+        app: asrv2
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: asrv2-image
+          # the image doesn't really matter, it's replaced in the overlays
+          # you could write "my_image" and it would work just fine,
+          # as long as you have a proper replacement in kustomization.yaml
+          image: registry.digitalocean.com/topcode/asrv2:v0.0.2
+          ports:
+            # not really required but work well for sanity
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: asrv2-config
+            - secretRef:
+                name: asrv2-secret
+

@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: asrv2-ingress
+  namespace: asrv2
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`asrv2.com`)
+      priority: 10
+      services:
+        - name: asrv2
+          port: 5000
+  tls:
+    secretName: asrv2-tls
+

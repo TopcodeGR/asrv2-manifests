@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: asrv2-config
+  namespace: asrv2
+data:
+  PORT: "5000"

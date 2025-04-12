@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: asrv2-cert
+  namespace: asrv2
+spec:
+  secretName: asrv2-tls # <===  Name of secret where the generated certificate will be stored.
+  dnsNames:
+    - "asrv2.com"
+  issuerRef:
+    name: acme
+    kind: ClusterIssuer
+
