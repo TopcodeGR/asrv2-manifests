@@ -16,4 +16,7 @@ resources:
   - ./mongodb/secret.yaml
   - ./mongodb/cert.yaml
   - ./mongodb/ingress.yaml
+  - ./mongodb/storageclass.yaml
+  - ./mongodb/pv.yaml
+  - ./mongodb/pvc.yaml
 
