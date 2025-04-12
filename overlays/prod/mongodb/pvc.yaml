@@ -4,7 +4,7 @@ metadata:
   name: asrv2-mongodb-pvc
   namespace: asrv2
 spec:
-  storageClassName: asrv2-mongodb-storageclass
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
