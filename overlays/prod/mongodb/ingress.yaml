@@ -1,11 +1,11 @@
 apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+kind: IngressRouteTCP
 metadata:
   name: asrv2-mongodb-ingress
   namespace: asrv2
 spec:
   entryPoints:
-    - websecure
+    - mongodb
   routes:
     - kind: Rule
       match: Host(`db.asrv2.com`)
