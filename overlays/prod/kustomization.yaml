@@ -13,4 +13,7 @@ resources:
   - ./cm.yaml
   - ./secret.yaml
   - ./cert.yaml
+  - ./mongodb/secret.yaml
+  - ./mongodb/cert.yaml
+  - ./mongodb/ingress.yaml
 

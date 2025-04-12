@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: asrv2-mongodb
+  labels:
+    app: asrv2-mongodb
+spec:
+  clusterIP: None
+  selector:
+    app: asrv2-mongodb
+  ports:
+    - port: 27017
+      targetPort: 27017
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: asrv2
+  name: asrv2-mongodb
+  labels:
+    app: asrv2-mongodb
+spec:
+  selector:
+    app: asrv2-mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+      name: tcp
+  type: ClusterIP

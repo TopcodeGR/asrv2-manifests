@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: asrv2-mongodb-deployment
+  namespace: asrv2
+spec:
+  serviceName: asrv2-mongodb
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asrv2-mongodb
+  template:
+    metadata:
+      labels:
+        app: asrv2-mongodb
+    spec:
+      containers:
+        - name: asrv2-mongodb
+          image: mongo
+          ports:
+            - containerPort: 27017
+              name: asrv2-mongodb
+          envFrom:
+            - secretRef:
+                name: asrv2-mongodb-secret
+          volumeMounts:
+            - mountPath: /data/db
+              name: asrv2-mongodb-data
+      volumes:
+        - name: asrv2-mongodb-data
+          persistentVolumeClaim:
+            claimName: asrv2-mongodb-pvc
+
