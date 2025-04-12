@@ -2,6 +2,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: asrv2-mongodb-storageclass
+  namespace: asrv2
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
