@@ -37,7 +37,7 @@ spec:
           # the image doesn't really matter, it's replaced in the overlays
           # you could write "my_image" and it would work just fine,
           # as long as you have a proper replacement in kustomization.yaml
-          image: registry.digitalocean.com/topcode/asrv2:v0.0.5
+          image: registry.digitalocean.com/topcode/asrv2:v0.0.6
           ports:
             # not really required but work well for sanity
             - containerPort: 5000
