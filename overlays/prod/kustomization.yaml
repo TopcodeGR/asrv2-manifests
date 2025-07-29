@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: asrv2
 
 images:
-  - name: registry.digitalocean.com/topcode/asrv2:v0.0.7
-    newTag: v0.0.7
+  - name: registry.digitalocean.com/topcode/asrv2:v0.0.9
+    newTag: v0.0.9
 
 resources:
   - ../../base
