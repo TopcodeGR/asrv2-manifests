@@ -17,4 +17,4 @@ resources:
   - ./mongodb/cert.yaml
   - ./mongodb/ingress.yaml
   - ./mongodb/pvc.yaml
-
+  - ./mongodb/backups-cj.yaml
