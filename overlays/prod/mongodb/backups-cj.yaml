@@ -9,6 +9,8 @@ spec:
     spec:
       template:
         spec:
+          imagePullSecrets:
+            - name: regcred
           containers:
           - name: asrv2-db-backup
             image: registry.digitalocean.com/topcode/asrv2-db-backup:latest 
